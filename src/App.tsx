@@ -22,6 +22,7 @@ interface ProjectCard {
   metrics: string[];
   audience: string;
   detail: string[];
+  website: string;
 }
 
 const projects: ProjectCard[] = [
@@ -37,10 +38,11 @@ const projects: ProjectCard[] = [
     accent: 'core',
     metrics: ['Brand presence', 'Product overview', 'Scalable structure'],
     audience: 'Companies, partners, and employers who need a quick overview of what Planary builds.',
+    website: 'https://planary.ch',
     detail: [
-      'Planary Core acts as the public front door for the wider product ecosystem.',
-      'It is designed to communicate confidence, consistency, and product thinking in one glance.',
-      'The structure is intentionally modular so more products can be added over time without redesigning the site.',
+      'Planary acts as the public front door for the wider product ecosystem and introduces the tone of the whole brand.',
+      'Its role is to give customers and potential collaborators a quick, polished understanding of what the team is building.',
+      'The site is structured as a portfolio-style layer, making it easier to extend the ecosystem with more products over time.',
     ],
   },
   {
@@ -55,10 +57,11 @@ const projects: ProjectCard[] = [
     accent: 'teal',
     metrics: ['Brackets', 'Scheduling', 'Match flow'],
     audience: 'Organizers, event teams, gaming communities, and clubs running competitive formats.',
+    website: 'https://tournament.planary.ch',
     detail: [
-      'Tournamount focuses on managing the moving parts around competitive events.',
-      'The product is being shaped around easier scheduling, clearer progression, and stronger event visibility.',
-      'Its position in the Planary ecosystem shows how brand consistency can still support very different product goals.',
+      'Tournamount focuses on tournament control without the chaos, giving organizers a clearer overview of events, brackets, and participants.',
+      'The product is built around faster updates, smoother handovers, and a cleaner administrative flow for competitive events.',
+      'Within the Planary ecosystem, it demonstrates how the same visual language can support a much more operational product without losing clarity.',
     ],
   },
   {
@@ -73,10 +76,11 @@ const projects: ProjectCard[] = [
     accent: 'violet',
     metrics: ['Wishlists', 'Sharing', 'Product tracking'],
     audience: 'Individuals, families, and social circles who want a simple but polished way to manage gift ideas.',
+    website: 'https://wishlist.planary.ch',
     detail: [
-      'Planary Wishlist combines soft visual design with a practical utility people can return to often.',
-      'It is designed to make personal planning feel thoughtful, lightweight, and easy to share.',
-      'The product is also a strong showcase of how Planary turns familiar tools into more intentional digital experiences.',
+      'Planary Wishlist combines a calm visual identity with a practical everyday use case people can return to often.',
+      'The experience is designed to make saving, organizing, and sharing gift ideas feel thoughtful rather than cluttered.',
+      'It also serves as a strong example of how Planary approaches small consumer tools with the same care as larger product surfaces.',
     ],
   },
 ];
@@ -330,6 +334,13 @@ function ProjectPage() {
               <span key={metric}>{metric}</span>
             ))}
           </div>
+        </div>
+
+        <div className="detail-panel detail-panel-wide">
+          <h2>Live product</h2>
+          <a href={project.website} target="_blank" rel="noreferrer" className="primary-link">
+            Visit {project.name}
+          </a>
         </div>
       </div>
     </section>
