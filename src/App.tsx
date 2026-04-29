@@ -144,6 +144,10 @@ function SiteFrame({
             alt="Planary"
             className="brand-logo"
           />
+          <span className="brand-copy">
+            <span className="brand-title">Planary</span>
+            <span className="brand-subtitle">Dashboard</span>
+          </span>
         </Link>
 
         <div className="header-actions">
