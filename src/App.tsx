@@ -103,6 +103,8 @@ const highlights = [
   },
 ];
 
+const THEME_STORAGE_KEY = 'planary-theme';
+
 function SiteFrame({
   children,
   isDarkMode,
@@ -373,10 +375,14 @@ function TeamPage() {
 }
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return storedTheme ? storedTheme === 'dark' : true;
+  });
 
   useEffect(() => {
     document.body.classList.toggle('dark-mode', isDarkMode);
+    window.localStorage.setItem(THEME_STORAGE_KEY, isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
   return (
