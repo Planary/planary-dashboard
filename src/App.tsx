@@ -44,8 +44,8 @@ const projects: ProjectCard[] = [
     ],
   },
   {
-    slug: 'tournamount',
-    name: 'Tournamount',
+    slug: 'tournament',
+    name: 'Tournament',
     tagline: 'Competitive event planning',
     description:
       'A dedicated experience for organizing tournaments, brackets, event flow, and the operational details that keep competition moving.',
@@ -57,7 +57,7 @@ const projects: ProjectCard[] = [
     audience: 'Organizers, event teams, gaming communities, and clubs running competitive formats.',
     website: 'https://tournament.planary.ch',
     detail: [
-      'Tournamount focuses on tournament control without the chaos, giving organizers a clearer overview of events, brackets, and participants.',
+      'Tournament focuses on tournament control without the chaos, giving organizers a clearer overview of events, brackets, and participants.',
       'The product is built around faster updates, smoother handovers, and a cleaner administrative flow for competitive events.',
       'Within the Planary ecosystem, it demonstrates how the same visual language can support a much more operational product without losing clarity.',
     ],
