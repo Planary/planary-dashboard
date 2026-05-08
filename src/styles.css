@@ -467,19 +467,50 @@ button {
 }
 
 .project-detail-shell,
-.team-shell {
+.team-shell,
+.contact-shell {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
 .project-detail-card,
-.team-card {
+.team-card,
+.contact-card {
   padding: 36px;
 }
 
 .project-detail-back {
   margin-bottom: 20px;
+}
+
+.contact-lead {
+  max-width: 720px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 28px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.contact-links a {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
 }
 
 .project-detail-card h1,

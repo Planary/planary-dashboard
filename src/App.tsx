@@ -124,6 +124,9 @@ function SiteFrame({
     if (location.pathname === '/team') {
       return 'Team | Planary';
     }
+    if (location.pathname === '/contact') {
+      return 'Contact | Planary';
+    }
     return 'Planary';
   }, [location.pathname]);
 
@@ -171,7 +174,7 @@ function SiteFrame({
           >
             <Link to="/" onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link to="/team" onClick={() => setIsMenuOpen(false)}>Team</Link>
-            <a href="#footer" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
 
           <button
@@ -221,6 +224,7 @@ function SiteFrame({
             <a href="#top">Top</a>
             <a href="#projects">Projects</a>
             <Link to="/team">Team</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </footer>
@@ -246,6 +250,9 @@ function HomePage() {
             </a>
             <Link to="/team" className="secondary-link">
               Meet the team
+            </Link>
+            <Link to="/contact" className="secondary-link">
+              Contact
             </Link>
           </div>
         </div>
@@ -379,6 +386,48 @@ function TeamPage() {
   );
 }
 
+function ContactPage() {
+  return (
+    <section className="contact-shell">
+      <div className="contact-card">
+        <span className="eyebrow">Contact</span>
+        <h1>Get in touch with Planary.</h1>
+        <p className="contact-lead">
+          Reach out for product questions, collaboration, partnerships, or anything else related to the Planary ecosystem.
+        </p>
+
+        <div className="contact-grid">
+          <article className="detail-panel">
+            <h2>Email</h2>
+            <p>The best way to start a conversation is by email.</p>
+            <a className="primary-link" href="mailto:hello@planary.ch">
+              hello@planary.ch
+            </a>
+          </article>
+
+          <article className="detail-panel">
+            <h2>Social</h2>
+            <p>You can also reach Planary through the social channels listed below.</p>
+            <div className="contact-links">
+              <a href="https://instagram.com/planaryofficial" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@planaryofficial" target="_blank" rel="noreferrer">TikTok</a>
+              <a href="https://github.com/planary" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+        </div>
+
+        <div className="detail-panel detail-panel-wide">
+          <h2>What to include</h2>
+          <div className="detail-copy-stack">
+            <p>Tell us which product you are asking about and what kind of help or context you need.</p>
+            <p>If your message is about a collaboration or partnership, a short description of the idea is enough to get started.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
@@ -399,6 +448,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
         <Route path="/team" element={<TeamPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </SiteFrame>
