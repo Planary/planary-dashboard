@@ -400,8 +400,8 @@ function ContactPage() {
           <article className="detail-panel">
             <h2>Email</h2>
             <p>The best way to start a conversation is by email.</p>
-            <a className="primary-link" href="mailto:hello@planary.ch">
-              hello@planary.ch
+            <a className="primary-link" href="mailto:info@planary.ch">
+              info@planary.ch
             </a>
           </article>
 
