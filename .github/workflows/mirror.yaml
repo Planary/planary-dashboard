@@ -11,6 +11,5 @@ jobs:
           fetch-depth: 0
       - name: Push mirror
         run: |
-          git config --global url."https://x-access-token:${{ secrets.ORG_MIRROR_TOKEN }}@github.com/".insteadOf "https://github.com/"
-          git remote add org https://github.com/Planary/planary-dashboard.git
-          git push org --mirror
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git push "https://x-access-token:${{ secrets.ORG_MIRROR_TOKEN }}@github.com/Planary/planary-dashboard.git" --mirror
