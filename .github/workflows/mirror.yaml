@@ -1,9 +1,7 @@
 name: Mirror to Org
-
 on:
   push:
     branches: ["**"]
-
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -11,10 +9,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Push mirror
-        env:
-          ORG_MIRROR_TOKEN: ${{ secrets.ORG_MIRROR_TOKEN }}
         run: |
-          git remote add org https://${ORG_MIRROR_TOKEN}@github.com/Planary/planary-dashboard.git
+          git remote add org https://x-access-token:${{ secrets.ORG_MIRROR_TOKEN }}@github.com/Planary/planary-dashboard.git
           git push org --mirror
