@@ -83,23 +83,6 @@ const projects: ProjectCard[] = [
   },
 ];
 
-const highlights = [
-  {
-    label: 'Focus',
-    title: 'Clear public presentation',
-    copy: 'The site is built to quickly explain what Planary creates without exposing internal-only context.',
-  },
-  {
-    label: 'Design',
-    title: 'Consistent visual identity',
-    copy: 'Each product card shares the same design language while still feeling distinct enough to stand on its own.',
-  },
-  {
-    label: 'Growth',
-    title: 'Built for expansion',
-    copy: 'More projects can be added later through the same detail-page structure without rebuilding the site.',
-  },
-];
 
 const THEME_STORAGE_KEY = 'planary-theme';
 
@@ -205,7 +188,7 @@ function SiteFrame({
       <footer id="footer" className="site-footer">
         <div className="footer-content">
           <span className="copyright">
-            &copy; {new Date().getFullYear()} Planary. Digital products with a clear visual identity.
+            &copy; {new Date().getFullYear()} Planary
           </span>
 
           <div className="footer-socials">
@@ -237,47 +220,15 @@ function HomePage() {
     <>
       <section className="hero-panel hero-panel-single">
         <div className="hero-copy">
-          <span className="eyebrow">Planary Projects</span>
-          <h1>We build focused digital products with their own personality.</h1>
-          <p>
-            Explore the current Planary portfolio, discover what each project is built for,
-            and open dedicated detail pages for a closer look at the product story.
-          </p>
-
-          <div className="hero-actions">
-            <a href="#projects" className="primary-link">
-              View projects
-            </a>
-            <Link to="/team" className="secondary-link">
-              Meet the team
-            </Link>
-            <Link to="/contact" className="secondary-link">
-              Contact
-            </Link>
-          </div>
+          <span className="eyebrow">Planary</span>
+          <h1>Digital products with a clear purpose.</h1>
+          <a href="#projects" className="primary-link">
+            View projects
+          </a>
         </div>
-      </section>
-
-      <section className="highlight-grid">
-        {highlights.map((item) => (
-          <article key={item.title} className="highlight-card">
-            <span className="eyebrow">{item.label}</span>
-            <h2>{item.title}</h2>
-            <p>{item.copy}</p>
-          </article>
-        ))}
       </section>
 
       <section id="projects" className="projects-section">
-        <div className="section-heading">
-          <span className="eyebrow">Projects</span>
-          <h2>A portfolio view of the current Planary ecosystem</h2>
-          <p>
-            Every card opens a separate project page with more context, intended audience,
-            and a clearer explanation of the product direction.
-          </p>
-        </div>
-
         <div className="project-grid">
           {projects.map((project) => (
             <Link
@@ -288,12 +239,9 @@ function HomePage() {
               <div className="project-copy">
                 <h3>{project.name}</h3>
                 <p className="tagline">{project.tagline}</p>
-                <p>{project.description}</p>
               </div>
-
               <div className="project-footer">
-                <strong className="inline-link">View project details</strong>
-                <span className="footer-note">{project.summary}</span>
+                <strong className="inline-link">Open →</strong>
               </div>
             </Link>
           ))}
