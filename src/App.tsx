@@ -1,10 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
-import moonEmpty from './assets/moonEmpty.svg';
-import moonFull from './assets/moonFull.svg';
-import sunEmpty from './assets/sunEmpty.svg';
-import sunFull from './assets/sunFull.svg';
 import tiktokLogo from './assets/tiktok.svg';
 
 type ProjectStatus = 'Live' | 'Growing' | 'Next';
@@ -84,18 +80,7 @@ const projects: ProjectCard[] = [
 ];
 
 
-const THEME_STORAGE_KEY = 'planary-theme';
-
-function SiteFrame({
-  children,
-  isDarkMode,
-  onToggleTheme,
-}: {
-  children: React.ReactNode;
-  isDarkMode: boolean;
-  onToggleTheme: () => void;
-}) {
-  const [isHovered, setIsHovered] = useState(false);
+function SiteFrame({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const pageTitle = useMemo(() => {
@@ -160,24 +145,6 @@ function SiteFrame({
             <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
 
-          <button
-            type="button"
-            className="theme-toggle-btn"
-            onClick={onToggleTheme}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            aria-label="Toggle Theme"
-          >
-            <img
-              src={
-                isDarkMode
-                  ? (isHovered ? sunFull : sunEmpty)
-                  : (isHovered ? moonFull : moonEmpty)
-              }
-              alt=""
-              className="theme-icon"
-            />
-          </button>
         </div>
       </header>
 
@@ -377,21 +344,8 @@ function ContactPage() {
 }
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-    return storedTheme ? storedTheme === 'dark' : true;
-  });
-
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', isDarkMode);
-    window.localStorage.setItem(THEME_STORAGE_KEY, isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
-
   return (
-    <SiteFrame
-      isDarkMode={isDarkMode}
-      onToggleTheme={() => setIsDarkMode((value) => !value)}
-    >
+    <SiteFrame>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
